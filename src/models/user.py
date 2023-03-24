@@ -20,10 +20,10 @@ class User(object):
         self.create_optional_fields = []
 
         # Fields required for UPDATE
-        self.update_required_fields = []
+        self.update_required_fields = ["fullname"]
 
         # Fields optional for UPDATE
-        self.update_optional_fields = []
+        self.update_optional_fields = ["login"]
 
     def create(self, user):
         # Validator will throw error if invalid

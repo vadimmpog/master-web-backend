@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, url_for
 from src.models import user
 from src.app import app
 
@@ -28,9 +28,9 @@ def add_users():
 @app.route('/users/<string:user_id>', methods=['PUT'])
 def update_users(user_id):
     if request.method == "PUT":
-        title = request.form['login']
-        body = request.form['fullname']
-        response = user.update(user_id, {'login': title, 'fullname': body})
+        login = request.form['login']
+        fullname = request.form['fullname']
+        response = user.update(user_id, {'login': login, 'fullname': fullname})
         return response, 201
 
 

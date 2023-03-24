@@ -11,10 +11,10 @@ class Scenario(object):
 
         self.fields = {
             "mentor_id": "string",
-            "fullname": "string"
+            "steps_num": "steps_num"
         }
 
-        self.create_required_fields = ["login", "fullname"]
+        self.create_required_fields = ["mentor_id"]
 
         # Fields optional for CREATE
         self.create_optional_fields = []
