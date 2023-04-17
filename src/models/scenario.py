@@ -10,11 +10,12 @@ class Scenario(object):
         self.collection_name = 'scenarios'  # collection name
 
         self.fields = {
-            "mentor_id": "string",
-            "steps_num": "steps_num"
+            "author": "string",
+            "name": "string",
+            "steps": "lst"
         }
 
-        self.create_required_fields = ["mentor_id"]
+        self.create_required_fields = ["name"]
 
         # Fields optional for CREATE
         self.create_optional_fields = []
