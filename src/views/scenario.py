@@ -1,3 +1,5 @@
+import json
+
 from flask import request, jsonify, url_for
 from src.models import scenario
 from src.app import app
@@ -19,9 +21,11 @@ def get_scenario(scenario_id):
 @app.route('/scenarios', methods=['POST'])
 def add_scenario():
     if request.method == "POST":
-        name = request.form['name']
-        author = request.form['author']
-        steps = request.form['steps']
+        data = request.json
+        print(request.json)
+        name = data['name']
+        author = data['author']
+        steps = data['steps']
         response = scenario.create({'name': name, 'author': author, 'steps': steps})
         return response, 201
 

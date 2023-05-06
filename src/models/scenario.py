@@ -15,7 +15,7 @@ class Scenario(object):
             "steps": "lst"
         }
 
-        self.create_required_fields = ["name"]
+        self.create_required_fields = ["author", "name", "steps"]
 
         # Fields optional for CREATE
         self.create_optional_fields = []
