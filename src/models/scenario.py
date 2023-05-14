@@ -11,6 +11,7 @@ class Scenario(object):
 
         self.fields = {
             "author": "string",
+            "start_page": "string",
             "name": "string",
             "steps": "lst"
         }

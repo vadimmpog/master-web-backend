@@ -22,7 +22,6 @@ def get_scenario(scenario_id):
 def add_scenario():
     if request.method == "POST":
         data = request.json
-        print(request.json)
         name = data['name']
         author = data['author']
         steps = data['steps']
@@ -36,7 +35,7 @@ def update_scenarios(scenario_id):
         name = request.form['name']
         author = request.form['author']
         steps = request.form['steps']
-        response = scenario.create({'name': name, 'author': author, 'steps': steps})
+        response = scenario.update(scenario_id, {'name': name, 'author': author, 'steps': steps})
         return response, 201
 
 
