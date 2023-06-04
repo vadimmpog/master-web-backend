@@ -34,8 +34,8 @@ def update_scenarios(scenario_id):
     if request.method == "PUT":
         name = request.form['name']
         author = request.form['author']
-        steps = request.form['steps']
-        response = scenario.update(scenario_id, {'name': name, 'author': author, 'steps': steps})
+        db_scenario = scenario.find_by_id(scenario_id)
+        response = scenario.update(scenario_id, {'name': name, 'author': author, 'steps': None}, db_scenario)
         return response, 201
 
 

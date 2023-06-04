@@ -25,7 +25,7 @@ class Scenario(object):
         self.update_required_fields = []
 
         # Fields optional for UPDATE
-        self.update_optional_fields = []
+        self.update_optional_fields = ["author", "name", "steps"]
 
     def create(self, scenario):
         # Validator will throw error if invalid
@@ -39,8 +39,11 @@ class Scenario(object):
     def find_by_id(self, id):
         return self.db.find_by_id(id, self.collection_name)
 
-    def update(self, id, scenario):
+    def update(self, id, scenario, db_scenario):
         self.validator.validate(scenario, self.fields, self.update_required_fields, self.update_optional_fields)
+        for key in scenario:
+            if scenario[key] is None:
+                scenario[key] = db_scenario[key]
         return self.db.update(id, scenario, self.collection_name)
 
     def delete(self, id):
